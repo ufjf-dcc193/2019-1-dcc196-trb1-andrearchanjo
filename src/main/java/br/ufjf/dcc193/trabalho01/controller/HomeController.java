@@ -13,5 +13,20 @@ public class HomeController {
     public String home(){
         return "home";
     }
+
+    @RequestMapping("novasede.html")
+    public String novasede(){
+        return "novasede";
+    }
+
+    @RequestMapping("novomembro.html")
+    public String novomembro(){
+        return "novomembro";
+    }
+    
+    @RequestMapping("novaatividade.html")
+    public String novaatividade(){
+        return "novaatividade";
+    }
     
 }

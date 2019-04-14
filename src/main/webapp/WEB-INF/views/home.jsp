@@ -7,6 +7,8 @@
     <title>Trabalho 01</title>
 </head>
 <body>
-    
+    <a href="novaatividade.html">Nova Atividade</a><br>
+    <a href="novomembro.html">Novo Membro</a><br>
+    <a href="novasede.html">Nova Sede</a><br>
 </body>
 </html>
