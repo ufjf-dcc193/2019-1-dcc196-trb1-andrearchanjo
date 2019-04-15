@@ -12,7 +12,7 @@ public class Atividade {
         EXECUTIVA;
     }
 
-    private Integer id;
+    private Long id;
     private String titulo;
     private String descricao;
     private String dataInicio;
@@ -22,7 +22,7 @@ public class Atividade {
     /**
      * @return the id
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 

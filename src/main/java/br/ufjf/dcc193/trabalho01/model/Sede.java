@@ -7,7 +7,7 @@ import java.util.List;
  */
 public class Sede {
 
-    private Integer id;
+    private Long id;
     private String nome;
     private String estado;
     private String cidade;
@@ -16,11 +16,23 @@ public class Sede {
     private String enderecoWeb;
     private List<Membro> membros;
 
+    public Sede(String nome, Long id){
+        this.nome = nome;
+        this.id = id;
+    }
+
     /**
      * @return the id
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(Long id) {
+        this.id = id;
     }
 
     /**

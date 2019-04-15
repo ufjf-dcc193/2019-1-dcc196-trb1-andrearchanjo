@@ -5,7 +5,7 @@ package br.ufjf.dcc193.trabalho01.model;
  */
 public class Membro {
 
-    private Integer id;
+    private Long id;
     private String nome;
     private String funcao;
     private String email;
@@ -15,7 +15,7 @@ public class Membro {
     /**
      * @return the id
      */
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
