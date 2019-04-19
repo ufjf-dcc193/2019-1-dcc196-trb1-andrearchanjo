@@ -15,17 +15,24 @@ import br.ufjf.dcc193.trabalho01.model.Sede;
 @Controller
 public class HomeController {
 
+    List<Sede> sedes = new ArrayList<Sede>();
+
     @RequestMapping({"","index.html"})
     public ModelAndView home(){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("home");
-        List<Sede> sedes = new ArrayList<Sede>();
+        
         Sede sede1 = new Sede("Microsoft", 1L);
         sedes.add(sede1);
         Sede sede2 = new Sede("Apple", 2L);
         sedes.add(sede2);
         mv.addObject("sedes", sedes);
         return mv;
+    }
+
+    @RequestMapping("editasede.html")
+    public String editaSede(){
+        return null;
     }
 
     @RequestMapping("novasede.html")

@@ -15,6 +15,7 @@ public class Sede {
     private String telefone;
     private String enderecoWeb;
     private List<Membro> membros;
+    private List<Atividade> atividades;
 
     public Sede(String nome, Long id){
         this.nome = nome;

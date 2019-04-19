@@ -8,12 +8,19 @@
     <title>Trabalho 01</title>
 </head>
 <body>
-    <ol>
-        <c:forEach var="sede" items="${sedes}">
-            <li value="${sede.id}">${sede.nome}</li>   
+    <h1>Trabalho 01</h1>
+
+    <select class="form-control" id="sede" name="sede">
+		<c:forEach var="sede" items="${sedes}">
+            <option value="${sede.id}">${sede.nome}</option>
         </c:forEach>
-    </ol>
-            
+    </select>  
+    
+    <ul style="list-style: none;" class="form-control" id="sede" name="sede">
+		<c:forEach var="sede" items="${sedes}">
+            <li value="${sede.id}">  <a href=""> X </a> ${sede.nome}</option>
+        </c:forEach>
+    </ul>   
 
 
     <a href="novaatividade.html">Nova Atividade</a><br>

@@ -17,6 +17,7 @@ public class Atividade {
     private String descricao;
     private String dataInicio;
     private String dataFim;
+    private String duracao;
     private Categoria categoria;
 
     /**
