@@ -84,6 +84,20 @@ public class Atividade {
     }
 
     /**
+     * @return the duracao
+     */
+    public String getDuracao() {
+        return duracao;
+    }
+
+    /**
+     * @param duracao the duracao to set
+     */
+    public void setDuracao(String duracao) {
+        this.duracao = duracao;
+    }
+
+    /**
      * @return the categoria
      */
     public Categoria getCategoria() {
