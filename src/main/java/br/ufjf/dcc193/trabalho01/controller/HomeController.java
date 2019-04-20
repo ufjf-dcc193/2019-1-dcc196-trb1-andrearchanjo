@@ -53,6 +53,15 @@ public class HomeController {
         return "deletasede";
     }
 
+    @RequestMapping("visualizasede.html")
+    public ModelAndView visualizasede(@RequestParam Long id){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("visualizasede");
+        //Sede s1 = repSedes.getOne(id);
+        mv.addObject("sede", repSedes.getOne(id));
+        return mv;
+    }
+
 
     /*@RequestMapping("novomembro.html")
     public String novomembro(){

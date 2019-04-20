@@ -20,6 +20,18 @@ public class Membro {
     private String dataEntrada;
     private String dataSaida;
 
+    public Membro(){
+
+    }
+
+    public Membro(String nome, String funcao, String email, String dataEntrada, String dataSaida){
+        this.nome = nome;
+        this.funcao = funcao;
+        this.email = email;
+        this.dataEntrada = dataEntrada;
+        this.dataSaida = dataSaida;
+    }
+
     /**
      * @return the id
      */
@@ -96,5 +108,13 @@ public class Membro {
     public void setDataSaida(String dataSaida) {
         this.dataSaida = dataSaida;
     }
+
+    @Override
+    public String toString() {
+        return "Membro [dataEntrada=" + dataEntrada + ", dataSaida=" + dataSaida + ", email=" + email + ", funcao="
+                + funcao + ", id=" + id + ", nome=" + nome + "]";
+    }
+
+    
 
 }

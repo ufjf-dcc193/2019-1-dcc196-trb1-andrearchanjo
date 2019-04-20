@@ -35,7 +35,8 @@
         <h2>Lista de Sedes: </h2>
             <ul style="list-style: none;" class="form-control" id="sede" name="sede">      
                 <c:forEach var="sede" items="${sedes}">         
-                    <li value="${sede.id}">  <a href="deletasede.html?id=${sede.id}"> X </a> ${sede.nome}</li>     
+                    <li value="${sede.id}">  <a href="deletasede.html?id=${sede.id}"> X 
+                    </a> <a href="visualizasede.html?id=${sede.id}"> ${sede.nome} </a>    
                 </c:forEach>   
             </ul>      
         </div>
