@@ -1,12 +1,24 @@
 package br.ufjf.dcc193.trabalho01.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  * Sede
  */
+@Entity
 public class Sede {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String nome;
     private String estado;
@@ -14,12 +26,24 @@ public class Sede {
     private String bairro;
     private String telefone;
     private String enderecoWeb;
-    private List<Membro> membros;
-    private List<Atividade> atividades;
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<Membro> membros;
+    //@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    //private List<Atividade> atividades;
 
-    public Sede(String nome, Long id){
+    public Sede(){
+
+    }
+
+    public Sede(String nome, String estado, String cidade, String bairro, String telefone, String enderecoWeb){
         this.nome = nome;
-        this.id = id;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.bairro = bairro;
+        this.telefone = telefone;
+        this.enderecoWeb = enderecoWeb;
+        //membros = new ArrayList<Membro>();
+        //atividades = new ArrayList<Atividade>();
     }
 
     /**
@@ -120,19 +144,40 @@ public class Sede {
         this.enderecoWeb = enderecoWeb;
     }
 
+    @Override
+    public String toString() {
+        return "Sede [bairro=" + bairro + ", cidade=" + cidade + ", enderecoWeb=" + enderecoWeb + ", estado=" + estado
+                + ", id=" + id + ", nome=" + nome + ", telefone=" + telefone + "]";
+    }
+    
     /**
      * @return the membros
      */
-    public List<Membro> getMembros() {
+    /*public List<Membro> getMembros() {
         return membros;
-    }
+    }*/
 
     /**
      * @param membros the membros to set
      */
-    public void setMembros(List<Membro> membros) {
+    /*public void setMembros(List<Membro> membros) {
         this.membros = membros;
-    }
+    }*/
     
+    /**
+     * @return the atividades
+     */
+    /*public List<Atividade> getAtividades() {
+        return atividades;
+    }*/
     
+    /**
+     * @param atividades the atividades to set
+     */
+    /*public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
+    }*/
+
+    
+
 }

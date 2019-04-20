@@ -1,24 +1,32 @@
 package br.ufjf.dcc193.trabalho01.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  * Atividade
  */
+@Entity
 public class Atividade {
 
-    public enum Categoria {
+    /*public enum Categoria {
         ASSISTENCIAL,
         JURIDICA,
         FINANCEIRA,
         EXECUTIVA;
-    }
+    }*/
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private Long id;
     private String titulo;
     private String descricao;
     private String dataInicio;
     private String dataFim;
     private String duracao;
-    private Categoria categoria;
+    private String categoria;
 
     /**
      * @return the id
@@ -100,14 +108,14 @@ public class Atividade {
     /**
      * @return the categoria
      */
-    public Categoria getCategoria() {
+    public String getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(Categoria categoria) {
+    public void setCategoria(String categoria) {
         this.categoria = categoria;
     }
 
