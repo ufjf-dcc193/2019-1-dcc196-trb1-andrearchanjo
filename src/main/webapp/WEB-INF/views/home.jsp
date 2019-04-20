@@ -24,10 +24,7 @@
             </div>
             <div class="form-group col-md-3">         
                 <a href="novaatividade.html">Nova Atividade</a>  
-            </div>
-            <div class="form-group col-md-3">
-                <a href="novomembro.html">Novo Membro</a>
-            </div>           
+            </div>          
         </div>
     
         <div class="form-group"> 

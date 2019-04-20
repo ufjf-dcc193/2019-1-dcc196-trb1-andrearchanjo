@@ -24,6 +24,14 @@ public class Membro {
 
     }
 
+    public Membro(String nome, String funcao, String email, String dataEntrada){
+        this.nome = nome;
+        this.funcao = funcao;
+        this.email = email;
+        this.dataEntrada = dataEntrada;
+        this.dataSaida = null;
+    }
+
     public Membro(String nome, String funcao, String email, String dataEntrada, String dataSaida){
         this.nome = nome;
         this.funcao = funcao;

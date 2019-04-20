@@ -29,6 +29,12 @@
         </div>
 
         <div class="form-row">
+            <form role="form" action="formeditasede.html?id=${sede.id}" method="POST">
+                <input class="form-control" type="submit" value="Editar"/>
+            </form>
+        </div>
+
+        <div class="form-row">
                 <h2>Lista de Membros: </h2>
                 <ul style="list-style: none;" class="form-control" id="membro" name="membro">      
                     <c:forEach var="membro" items="${sede.membros}">         
@@ -36,6 +42,10 @@
                     </c:forEach>   
                 </ul>      
             </div>
+            <div class="form-group col-md-3">
+                <a href="formnovomembro.html?idSede=${sede.id}">Novo Membro</a>
+            </div> 
+
         </div>
 
     </div>

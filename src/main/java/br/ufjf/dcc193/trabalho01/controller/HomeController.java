@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import br.ufjf.dcc193.trabalho01.model.Membro;
 import br.ufjf.dcc193.trabalho01.model.Sede;
+import br.ufjf.dcc193.trabalho01.persistence.MembroRepository;
 import br.ufjf.dcc193.trabalho01.persistence.SedeRepository;
 
 /**
@@ -20,6 +22,9 @@ public class HomeController {
 
     @Autowired
     SedeRepository repSedes;
+
+    @Autowired
+    MembroRepository repMembros;
     //List<Sede> sedes = new ArrayList<Sede>();
 
     @RequestMapping({"","index.html"})
@@ -31,9 +36,28 @@ public class HomeController {
         return mv;
     }
 
+    ///Início Sede
+
     @RequestMapping("formeditasede.html")
-    public String formeditasede(){
-        return "formeditasede";
+    public ModelAndView formeditasede(@RequestParam Long id){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("formeditasede");
+        mv.addObject("sede", repSedes.getOne(id));
+        return mv;
+    }
+
+    @RequestMapping("editasede.html")
+    public RedirectView editasede(Sede sede){
+        Sede updateSede = repSedes.getOne(sede.getId());
+        updateSede.setNome(sede.getNome());
+        updateSede.setEstado(sede.getEstado());
+        updateSede.setCidade(sede.getCidade());
+        updateSede.setBairro(sede.getBairro());
+        updateSede.setTelefone(sede.getTelefone());
+        updateSede.setEnderecoWeb(sede.getEnderecoWeb());
+        //System.out.println(sede.getId());
+        repSedes.save(updateSede);
+        return new RedirectView("visualizasede.html?id=" + sede.getId());
     }
 
     @RequestMapping("formnovasede.html")
@@ -57,18 +81,35 @@ public class HomeController {
     public ModelAndView visualizasede(@RequestParam Long id){
         ModelAndView mv = new ModelAndView();
         mv.setViewName("visualizasede");
-        //Sede s1 = repSedes.getOne(id);
         mv.addObject("sede", repSedes.getOne(id));
         return mv;
     }
 
+    ///Termina Sede
 
-    /*@RequestMapping("novomembro.html")
-    public String novomembro(){
-        return "novomembro";
+    ///Início Membro
+
+    @RequestMapping("formnovomembro.html")
+    public ModelAndView formnovomembro(@RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        System.err.println(idSede);
+        mv.addObject("idSede", idSede);
+        return mv;
     }
+
+    @RequestMapping("novomembro.html")
+    public RedirectView novomembro(Membro membro, Long idSede){
+        repMembros.save(membro);
+        Sede sede1 = repSedes.getOne(idSede);
+        sede1.addMembro(membro);
+        repSedes.save(sede1);
+        return new RedirectView("visualizasede.html?id=" + idSede);
+    }
+
+
+    ///Termina Membro
     
-    @RequestMapping("novaatividade.html")
+    /*@RequestMapping("novaatividade.html")
     public String novaatividade(){
         return "novaatividade";
     }*/

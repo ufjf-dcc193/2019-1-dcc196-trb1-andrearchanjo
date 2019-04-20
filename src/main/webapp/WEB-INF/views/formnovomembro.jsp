@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Formulário: Nova Sede</title>
+    <title>Formulário: Novo Membro</title>
 
     <script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" ></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
@@ -17,13 +17,19 @@
 <body>
     <script>   
         $(document).ready(function () { 
-            var telefone = $('#telefone');
-            telefone.mask('0000-0000');
+            var dataEntrada = $('#dataEntrada');
+            dataEntrada.mask('00/00/0000');
+
+            var dataSaida = $('#dataSaida');
+            dataSaida.mask('00/00/0000');
+
+            document.getElementById("idSede").value = "${idSede}";
+
+            alert(document.getElementById("idSede").value);
 
             $('form').submit(function() {
-                if (!$("#nome").val() || !$("#estado").val() || 
-                !$("#cidade").val() || !$("#bairro").val() || 
-                !$("#telefone").val() || !$("#enderecoWeb").val()) {
+                if (!$("#nome").val() || !$("#funcao").val() || !$("#email").val() || 
+                !$("#dataEntrada").val() || !$("#dataSaida").val()) {
                     alert('Preencha todos os campos!');
                     return false;
                 }
@@ -32,8 +38,8 @@
     </script>
     
     <div class="ui container form">
-        <h1>Formulario: Nova Sede</h1>
-        <form role="form" action="novasede.html" method="POST">
+        <h1>Formulario: Novo Membro</h1>
+        <form role="form" action="novomembro.html" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <label>Nome </label>
@@ -42,28 +48,25 @@
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label>Estado </label> 
-                    <input class="form-control" type="text" id="estado" name="estado"/>
+                    <label>Função </label> 
+                    <input class="form-control" type="text" id="funcao" name="funcao"/>
                 </div>
                 <div class="form-group col-md-4">
-                    <label>Cidade </label>
-                    <input class="form-control" type="text" id="cidade" name="cidade"/>
-                </div>
-                <div class="form-group col-md-4">
-                    <label>Bairro </label>
-                    <input class="form-control" type="text" id="bairro" name="bairro"/>
+                    <label>E-mail </label>
+                    <input class="form-control" type="text" id="email" name="email"/>
                 </div>
             </div>
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <label>Telefone </label>
-                    <input class="form-control" type="text" id="telefone" name="telefone"/>
+                    <label>Data de Entrada </label>
+                    <input class="form-control" type="text" id="dataEntrada" name="dataEntrada"/>
                 </div>
                 <div class="form-group col-md-4">
-                    <label>Endereço Web </label>
-                    <input class="form-control" type="text" id="enderecoWeb" name="enderecoWeb"/>
+                    <label>Data de Saída </label>
+                    <input class="form-control" type="text" id="dataSaida" name="dataSaida"/>
                 </div>
             </div>
+            <input class="form-control" type="hidden" id="idSede" name="idSede"/>
             <input class="form-control" type="submit"/>
         </form>
     </div>
