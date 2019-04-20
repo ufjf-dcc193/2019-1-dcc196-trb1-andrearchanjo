@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Fri Apr 19 21:28:55 BRT 2019:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016a-3825-5fbf-000005e3f200 
+Fri Apr 19 23:15:47 BRT 2019:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-016a-3887-3916-000006df3a00 
 on database directory C:\DCC193\trabalho01\teste-db with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@277050dc 
 Loaded from file:/C:/Users/archa/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
