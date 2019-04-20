@@ -55,7 +55,6 @@ public class HomeController {
         updateSede.setBairro(sede.getBairro());
         updateSede.setTelefone(sede.getTelefone());
         updateSede.setEnderecoWeb(sede.getEnderecoWeb());
-        //System.out.println(sede.getId());
         repSedes.save(updateSede);
         return new RedirectView("visualizasede.html?id=" + sede.getId());
     }
@@ -89,6 +88,30 @@ public class HomeController {
 
     ///Início Membro
 
+    @RequestMapping("formeditamembro.html")
+    public ModelAndView formeditamembro(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("formeditamembro");
+        mv.addObject("membro", repMembros.getOne(id));
+        mv.addObject("idSede", idSede);
+        return mv;
+    }
+
+    @RequestMapping("editamembro.html")
+    public RedirectView editamembro(Membro membro, @RequestParam Long id, @RequestParam Long idSede){
+        System.err.println("Membro ID:" + id);
+        System.err.println("Sede ID:" + idSede);
+        Membro updateMembro = repMembros.getOne(id);
+        updateMembro.setNome(membro.getNome());
+        updateMembro.setFuncao(membro.getFuncao());
+        updateMembro.setEmail(membro.getEmail());
+        updateMembro.setDataEntrada(membro.getDataEntrada());
+        updateMembro.setDataEntrada(membro.getDataSaida());
+        //System.err.println("Membro ID:" + membro.getId());
+        repMembros.save(updateMembro);
+        return new RedirectView("visualizasede.html?id="+idSede);
+    }
+
     @RequestMapping("formnovomembro.html")
     public ModelAndView formnovomembro(@RequestParam Long idSede){
         ModelAndView mv = new ModelAndView();
@@ -104,6 +127,20 @@ public class HomeController {
         sede1.addMembro(membro);
         repSedes.save(sede1);
         return new RedirectView("visualizasede.html?id=" + idSede);
+    }
+
+    @RequestMapping("deletamembro.html")
+    public ModelAndView deletamembro(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        System.err.println("Membro: " + id);
+        System.err.println("Sede: " + idSede);
+        mv.addObject("idSede", idSede);
+        mv.setViewName("deletamembro");
+        Membro membro = repMembros.getOne(id);
+        Sede sede1 = repSedes.getOne(idSede);
+        sede1.removeMembro(membro);
+        repMembros.deleteById(id);
+        return mv;
     }
 
 

@@ -38,7 +38,7 @@
     </script>
     
     <div class="ui container form">
-        <h1>Formulario: Novo Membro</h1>
+        <h1>Formulário: Novo Membro</h1>
         <form role="form" action="novomembro.html" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-4">

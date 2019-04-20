@@ -41,7 +41,7 @@
     </script>
     
     <div class="ui container form">
-        <h1>Formulario: Nova Sede</h1>
+        <h1>Formulário: Edita Sede</h1>
         <form role="form" action="editasede.html" method="POST">
             <div class="form-row">
                 <div class="form-group col-md-4">

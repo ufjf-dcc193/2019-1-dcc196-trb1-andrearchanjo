@@ -38,10 +38,20 @@
                 <h2>Lista de Membros: </h2>
                 <ul style="list-style: none;" class="form-control" id="membro" name="membro">      
                     <c:forEach var="membro" items="${sede.membros}">         
-                        <li value="${membro.id}">  ${membro.nome}
+                        <li value="${membro.id}"> <a href="deletamembro.html?id=${membro.id}&idSede=${sede.id}"> X 
+                        </a> <a href="formeditamembro.html?id=${membro.id}&idSede=${sede.id}">${membro.nome}</a> 
                     </c:forEach>   
                 </ul>      
             </div>
+
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+
             <div class="form-group col-md-3">
                 <a href="formnovomembro.html?idSede=${sede.id}">Novo Membro</a>
             </div> 

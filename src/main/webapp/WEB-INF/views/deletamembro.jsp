@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Sede Deletada</title>
+    <title>Membro Deletado</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,11 +15,11 @@
 <body>
     <div class="ui container form">
     
-        <h1>Sede Deletada</h1>
+        <h1>Membro Deletado</h1>
 
         <div class="form-row">
             <div class="form-group col-md-3">
-                    <a href="index.html">Voltar</a>           
+                    <a href="visualizasede.html?id=${idSede}">Voltar</a>           
         </div>
 
     </div>
