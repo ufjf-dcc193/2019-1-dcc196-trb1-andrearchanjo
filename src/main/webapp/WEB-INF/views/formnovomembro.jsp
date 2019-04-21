@@ -25,7 +25,7 @@
 
             document.getElementById("idSede").value = "${idSede}";
 
-            alert(document.getElementById("idSede").value);
+            //alert(document.getElementById("idSede").value);
 
             $('form').submit(function() {
                 if (!$("#nome").val() || !$("#funcao").val() || !$("#email").val() || 

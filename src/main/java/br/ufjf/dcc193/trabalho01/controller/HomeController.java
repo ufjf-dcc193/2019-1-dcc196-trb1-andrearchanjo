@@ -9,8 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
+import br.ufjf.dcc193.trabalho01.model.Atividade;
 import br.ufjf.dcc193.trabalho01.model.Membro;
 import br.ufjf.dcc193.trabalho01.model.Sede;
+import br.ufjf.dcc193.trabalho01.persistence.AtividadeRepository;
 import br.ufjf.dcc193.trabalho01.persistence.MembroRepository;
 import br.ufjf.dcc193.trabalho01.persistence.SedeRepository;
 
@@ -25,6 +27,9 @@ public class HomeController {
 
     @Autowired
     MembroRepository repMembros;
+
+    @Autowired
+    AtividadeRepository repAtividades;
     //List<Sede> sedes = new ArrayList<Sede>();
 
     @RequestMapping({"","index.html"})
@@ -99,15 +104,14 @@ public class HomeController {
 
     @RequestMapping("editamembro.html")
     public RedirectView editamembro(Membro membro, @RequestParam Long id, @RequestParam Long idSede){
-        System.err.println("Membro ID:" + id);
-        System.err.println("Sede ID:" + idSede);
+        //System.err.println("Membro ID:" + id);
+        //System.err.println("Sede ID:" + idSede);
         Membro updateMembro = repMembros.getOne(id);
         updateMembro.setNome(membro.getNome());
         updateMembro.setFuncao(membro.getFuncao());
         updateMembro.setEmail(membro.getEmail());
         updateMembro.setDataEntrada(membro.getDataEntrada());
         updateMembro.setDataEntrada(membro.getDataSaida());
-        //System.err.println("Membro ID:" + membro.getId());
         repMembros.save(updateMembro);
         return new RedirectView("visualizasede.html?id="+idSede);
     }
@@ -143,12 +147,70 @@ public class HomeController {
         return mv;
     }
 
-
     ///Termina Membro
+
+    ///Início Atividade
+
+    @RequestMapping("formnovaatividade.html")
+    public ModelAndView formnovaatividade(@RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        System.err.println(idSede);
+        mv.addObject("idSede", idSede);
+        return mv;
+    }
+
+    @RequestMapping("novaatividade.html")
+    public RedirectView novaatividade(Atividade atividade, Long idSede){
+        System.err.println(idSede);
+        System.err.println(atividade.getCategoria().toString());
+        repAtividades.save(atividade);
+        Sede sede1 = repSedes.getOne(idSede);
+        sede1.addAtividade(atividade);
+        repSedes.save(sede1);
+        return new RedirectView("visualizasede.html?id=" + idSede);
+    }
+
+    @RequestMapping("deletaatividade.html")
+    public ModelAndView deletaatividade(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        System.err.println("Atividade: " + id);
+        System.err.println("Sede: " + idSede);
+        mv.addObject("idSede", idSede);
+        mv.setViewName("deletaatividade");
+        Atividade atividade = repAtividades.getOne(id);
+        Sede sede1 = repSedes.getOne(idSede);
+        sede1.removeAtividade(atividade);
+        repAtividades.deleteById(id);
+        return mv;
+    }
+
+    @RequestMapping("formeditaatividade.html")
+    public ModelAndView formeditaatividade(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("formeditaatividade");
+        mv.addObject("atividade", repAtividades.getOne(id));
+        mv.addObject("idSede", idSede);
+        return mv;
+    }
+
+    @RequestMapping("editaatividade.html")
+    public RedirectView editaatividade(Atividade atividade, @RequestParam Long id, @RequestParam Long idSede){
+        //System.err.println("Atividade ID:" + id);
+        //System.err.println("Sede ID:" + idSede);
+        Atividade updateAtividade = repAtividades.getOne(id);
+        updateAtividade.setTitulo(atividade.getTitulo());
+        updateAtividade.setDescricao(atividade.getDescricao());
+        updateAtividade.setDataInicio(atividade.getDataInicio());
+        updateAtividade.setDataFim(atividade.getDataFim());
+        updateAtividade.setDuracao(atividade.getDuracao());
+        updateAtividade.setCategoria(atividade.getCategoria());
+        repAtividades.save(updateAtividade);
+        return new RedirectView("visualizasede.html?id="+idSede);
+    }
+
+
+    ///Termina Atividade
     
-    /*@RequestMapping("novaatividade.html")
-    public String novaatividade(){
-        return "novaatividade";
-    }*/
+    
     
 }

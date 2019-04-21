@@ -34,12 +34,26 @@
             </form>
         </div>
 
+        <br>
+        <br>
+
         <div class="form-row">
-                <h2>Lista de Membros: </h2>
+            <div class="form-group col-md-6">
+                <h2>Lista de Membros </h2>
                 <ul style="list-style: none;" class="form-control" id="membro" name="membro">      
                     <c:forEach var="membro" items="${sede.membros}">         
                         <li value="${membro.id}"> <a href="deletamembro.html?id=${membro.id}&idSede=${sede.id}"> X 
                         </a> <a href="formeditamembro.html?id=${membro.id}&idSede=${sede.id}">${membro.nome}</a> 
+                    </c:forEach>   
+                </ul>      
+            </div>
+
+            <div class="form-group col-md-6">
+                <h2>Lista de Atividades </h2>
+                <ul style="list-style: none;" class="form-control" id="atividade" name="atividade">      
+                    <c:forEach var="atividade" items="${sede.atividades}">         
+                        <li value="${atividade.id}"> <a href="deletaatividade.html?id=${atividade.id}&idSede=${sede.id}"> X 
+                        </a> <a href="formeditaatividade.html?id=${atividade.id}&idSede=${sede.id}">${atividade.titulo}</a>
                     </c:forEach>   
                 </ul>      
             </div>
@@ -51,11 +65,23 @@
             <br>
             <br>
             <br>
+            <br>
+            <br>
+            
+        </div>
 
-            <div class="form-group col-md-3">
+        <div class="form-row">
+            <div class="form-group col-md-6">
                 <a href="formnovomembro.html?idSede=${sede.id}">Novo Membro</a>
             </div> 
-
+            <div class="form-group col-md-6">
+                    <a href="formnovaatividade.html?idSede=${sede.id}">Nova Atividade</a>
+                </div> 
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <a href="index.html">Voltar</a>           
         </div>
 
     </div>

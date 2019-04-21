@@ -11,12 +11,12 @@ import javax.persistence.Id;
 @Entity
 public class Atividade {
 
-    /*public enum Categoria {
+    public enum Categoria {
         ASSISTENCIAL,
         JURIDICA,
         FINANCEIRA,
         EXECUTIVA;
-    }*/
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
@@ -25,8 +25,21 @@ public class Atividade {
     private String descricao;
     private String dataInicio;
     private String dataFim;
-    private String duracao;
-    private String categoria;
+    private int duracao;
+    private Categoria categoria;
+
+    public Atividade(){
+
+    }
+
+    public Atividade(String titulo, String descricao, String dataInicio, String dataFim, int duracao, Categoria categoria){
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
+        this.duracao = duracao;
+        this.categoria = categoria;
+    }
 
     /**
      * @return the id
@@ -94,29 +107,37 @@ public class Atividade {
     /**
      * @return the duracao
      */
-    public String getDuracao() {
+    public int getDuracao() {
         return duracao;
     }
 
     /**
      * @param duracao the duracao to set
      */
-    public void setDuracao(String duracao) {
+    public void setDuracao(int duracao) {
         this.duracao = duracao;
     }
 
     /**
      * @return the categoria
      */
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
     /**
      * @param categoria the categoria to set
      */
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
+
+    @Override
+    public String toString() {
+        return "Atividade [categoria=" + categoria + ", dataFim=" + dataFim + ", dataInicio=" + dataInicio
+                + ", descricao=" + descricao + ", duracao=" + duracao + ", id=" + id + ", titulo=" + titulo + "]";
+    }
+
+    
 
 }
