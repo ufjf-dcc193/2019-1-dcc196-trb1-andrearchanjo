@@ -75,13 +75,17 @@
                 <a href="formnovomembro.html?idSede=${sede.id}">Novo Membro</a>
             </div> 
             <div class="form-group col-md-6">
-                    <a href="formnovaatividade.html?idSede=${sede.id}">Nova Atividade</a>
-                </div> 
+                <a href="formnovaatividade.html?idSede=${sede.id}">Nova Atividade</a>
+            </div> 
         </div>
         
         <div class="form-row">
-            <div class="form-group col-md-3">
-                <a href="index.html">Voltar</a>           
+            <div class="form-group col-md-6">
+                <a href="index.html">Voltar</a> 
+            </div>
+            <div class="form-group col-md-6">
+                <a href="relatorioduracaototal.html?id=${sede.id}">Relatório</a>
+            </div>           
         </div>
 
     </div>

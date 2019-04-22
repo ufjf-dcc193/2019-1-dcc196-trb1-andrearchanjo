@@ -9,6 +9,5 @@ import br.ufjf.dcc193.trabalho01.model.Sede;
  */
 public interface SedeRepository extends JpaRepository<Sede,Long>{
 
-    
-    
+
 }

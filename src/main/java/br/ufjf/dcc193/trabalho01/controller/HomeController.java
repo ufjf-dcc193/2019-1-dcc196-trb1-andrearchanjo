@@ -12,6 +12,7 @@ import org.springframework.web.servlet.view.RedirectView;
 import br.ufjf.dcc193.trabalho01.model.Atividade;
 import br.ufjf.dcc193.trabalho01.model.Membro;
 import br.ufjf.dcc193.trabalho01.model.Sede;
+import br.ufjf.dcc193.trabalho01.model.Atividade.Categoria;
 import br.ufjf.dcc193.trabalho01.persistence.AtividadeRepository;
 import br.ufjf.dcc193.trabalho01.persistence.MembroRepository;
 import br.ufjf.dcc193.trabalho01.persistence.SedeRepository;
@@ -86,6 +87,7 @@ public class HomeController {
         ModelAndView mv = new ModelAndView();
         mv.setViewName("visualizasede");
         mv.addObject("sede", repSedes.getOne(id));
+        //System.err.println(repSedes.selectDuracaoTotal());
         return mv;
     }
 
@@ -208,9 +210,42 @@ public class HomeController {
         return new RedirectView("visualizasede.html?id="+idSede);
     }
 
-
     ///Termina Atividade
     
+    ///Inicio Relatorio
     
+    @RequestMapping("relatorioduracaototal.html")
+    public ModelAndView relatorioduracaototal(@RequestParam Long id){
+        ModelAndView mv = new ModelAndView();
+        int duracaoTotal = 0;
+        int duracaoFinanceira = 0;
+        int duracaoExecutiva = 0;
+        int duracaoJuridica = 0;
+        int duracaoAssistencial = 0;
+        Sede sede = repSedes.getOne(id);
+        for (Atividade a : sede.getAtividades()) {
+            System.err.println(a.getCategoria());
+            if(a.getCategoria().equals(Categoria.FINANCEIRA)){
+                duracaoFinanceira += a.getDuracao();
+            } else if(a.getCategoria().equals(Categoria.JURIDICA)){
+                duracaoJuridica += a.getDuracao();
+            } else if(a.getCategoria().equals(Categoria.ASSISTENCIAL)){
+                duracaoAssistencial += a.getDuracao();
+            } else {
+                duracaoExecutiva += a.getDuracao();
+            }
+        }
+        duracaoTotal = duracaoAssistencial + duracaoExecutiva + duracaoFinanceira + duracaoJuridica;
+        mv.setViewName("relatorioduracaototal");
+        mv.addObject("duracaoTotal", duracaoTotal);
+        mv.addObject("duracaoJuridica", duracaoJuridica);
+        mv.addObject("duracaoFinanceira", duracaoFinanceira);
+        mv.addObject("duracaoExecutiva", duracaoExecutiva);
+        mv.addObject("duracaoAssistencial", duracaoAssistencial);
+        mv.addObject("id", id);
+        return mv;
+    }
+
+    ///Termina Relatorio
     
 }

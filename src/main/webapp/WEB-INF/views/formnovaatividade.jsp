@@ -72,7 +72,7 @@
                 <div class="form-group col-md-4">
                     <label>Categoria </label>
                     <select class="form-control" type="text" id="categoria" name="categoria">
-                        <option value="JURIDICO">Jurídico </option>
+                        <option value="JURIDICA">Jurídica </option>
                         <option value="ASSISTENCIAL">Assistencial </option>
                         <option value="FINANCEIRA">Financeira </option>
                         <option value="EXECUTIVA">Executiva </option>
