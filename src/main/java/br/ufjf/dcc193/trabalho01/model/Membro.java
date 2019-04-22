@@ -29,7 +29,7 @@ public class Membro {
         this.funcao = funcao;
         this.email = email;
         this.dataEntrada = dataEntrada;
-        this.dataSaida = null;
+        this.dataSaida = "";
     }
 
     public Membro(String nome, String funcao, String email, String dataEntrada, String dataSaida){
