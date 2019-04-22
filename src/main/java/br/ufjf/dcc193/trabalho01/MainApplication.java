@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Bean;
 import br.ufjf.dcc193.trabalho01.model.Atividade;
 import br.ufjf.dcc193.trabalho01.model.Membro;
 import br.ufjf.dcc193.trabalho01.model.Sede;
-import br.ufjf.dcc193.trabalho01.model.Atividade.Categoria;
+//import br.ufjf.dcc193.trabalho01.model.Atividade.Categoria;
 import br.ufjf.dcc193.trabalho01.persistence.AtividadeRepository;
 import br.ufjf.dcc193.trabalho01.persistence.MembroRepository;
 import br.ufjf.dcc193.trabalho01.persistence.SedeRepository;
