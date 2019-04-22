@@ -149,6 +149,15 @@ public class HomeController {
         return mv;
     }
 
+    @RequestMapping("vermembro.html")
+    public ModelAndView vermembro(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("vermembro");
+        mv.addObject("idSede", idSede);
+        mv.addObject("membro", repMembros.getOne(id));
+        return mv;
+    }
+
     ///Termina Membro
 
     ///Início Atividade
@@ -208,6 +217,15 @@ public class HomeController {
         updateAtividade.setCategoria(atividade.getCategoria());
         repAtividades.save(updateAtividade);
         return new RedirectView("visualizasede.html?id="+idSede);
+    }
+
+    @RequestMapping("veratividade.html")
+    public ModelAndView veratividade(@RequestParam Long id, @RequestParam Long idSede){
+        ModelAndView mv = new ModelAndView();
+        mv.setViewName("veratividade");
+        mv.addObject("idSede", idSede);
+        mv.addObject("atividade", repAtividades.getOne(id));
+        return mv;
     }
 
     ///Termina Atividade

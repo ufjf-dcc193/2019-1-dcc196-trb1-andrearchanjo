@@ -20,11 +20,11 @@
 
         <div class="form-row">
             <ul>
-                <li>${sede.estado}</li>
-                <li>${sede.cidade}</li>
-                <li>${sede.bairro}</li>
-                <li>${sede.telefone}</li>
-                <li>${sede.enderecoWeb}</li>
+                <li>Estado: ${sede.estado}</li>
+                <li>Cidade: ${sede.cidade}</li>
+                <li>Bairro: ${sede.bairro}</li>
+                <li>Telefone: ${sede.telefone}</li>
+                <li>Endereço Web: ${sede.enderecoWeb}</li>
             </ul>           
         </div>
 
@@ -43,7 +43,8 @@
                 <ul style="list-style: none;" class="form-control" id="membro" name="membro">      
                     <c:forEach var="membro" items="${sede.membros}">         
                         <li value="${membro.id}"> <a href="deletamembro.html?id=${membro.id}&idSede=${sede.id}"> X 
-                        </a> <a href="formeditamembro.html?id=${membro.id}&idSede=${sede.id}">${membro.nome}</a> 
+                        </a> <a href="vermembro.html?id=${membro.id}&idSede=${sede.id}"> &#9634; </a>
+                        <a href="formeditamembro.html?id=${membro.id}&idSede=${sede.id}">${membro.nome}</a> 
                     </c:forEach>   
                 </ul>      
             </div>
@@ -53,7 +54,8 @@
                 <ul style="list-style: none;" class="form-control" id="atividade" name="atividade">      
                     <c:forEach var="atividade" items="${sede.atividades}">         
                         <li value="${atividade.id}"> <a href="deletaatividade.html?id=${atividade.id}&idSede=${sede.id}"> X 
-                        </a> <a href="formeditaatividade.html?id=${atividade.id}&idSede=${sede.id}">${atividade.titulo}</a>
+                        </a> <a href="veratividade.html?id=${atividade.id}&idSede=${sede.id}"> &#9634; </a> 
+                        <a href="formeditaatividade.html?id=${atividade.id}&idSede=${sede.id}">${atividade.titulo}</a>
                     </c:forEach>   
                 </ul>      
             </div>

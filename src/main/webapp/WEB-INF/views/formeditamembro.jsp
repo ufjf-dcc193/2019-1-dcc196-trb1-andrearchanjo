@@ -38,7 +38,7 @@
                     alert('Preencha todos os campos!');
                     return false;
                 }
-                alert(document.getElementById("id").value);
+                //alert(document.getElementById("id").value);
             });
         });
     </script>
@@ -79,6 +79,17 @@
             
             <input class="form-control" type="submit"/>
         </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                    <a href="visualizasede.html?id=${idSede}">Voltar</a>           
+        </div>
+
     </div>
 </body>
 </html>

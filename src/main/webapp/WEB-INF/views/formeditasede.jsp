@@ -27,7 +27,7 @@
             document.getElementById("enderecoWeb").value = "${sede.enderecoWeb}";
             document.getElementById("id").value = "${sede.id}";
 
-            alert(document.getElementById("id").value);
+            //alert(document.getElementById("id").value);
 
             $('form').submit(function() {
                 if (!$("#nome").val() || !$("#estado").val() || 
@@ -76,6 +76,18 @@
             <input class="form-control" type="hidden" id="id" name="id"/>
             <input class="form-control" type="submit" value="Confirmar"/>
         </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <a href="visualizasede.html?id=${sede.id}">Voltar</a> 
+            </div>
+        <div>
+
     </div>
 </body>
 </html>

@@ -66,6 +66,17 @@
             </div>
             <input class="form-control" type="submit"/>
         </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <a href="index.html">Voltar</a>           
+        </div>
+
     </div>
 </body>
 </html>
