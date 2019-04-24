@@ -1,5 +1,6 @@
 package br.ufjf.dcc193.trabalho01.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -261,6 +262,26 @@ public class HomeController {
         mv.addObject("duracaoExecutiva", duracaoExecutiva);
         mv.addObject("duracaoAssistencial", duracaoAssistencial);
         mv.addObject("id", id);
+        return mv;
+    }
+
+    @RequestMapping("relatorio.html")
+    public ModelAndView relatorio(){
+        ModelAndView mv = new ModelAndView();
+        int duracao = 0;
+        List<Sede> sedes = repSedes.findAll();
+        List<Integer> duracoes = new ArrayList<>();
+
+        for(Sede s : sedes){
+            for (Atividade a : s.getAtividades()){
+                duracao += a.getDuracao();
+            }
+            duracoes.add(duracao);
+            duracao = 0;
+        }
+        mv.setViewName("relatorio");
+        mv.addObject("sedes", sedes);
+        mv.addObject("duracoes", duracoes);
         return mv;
     }
 

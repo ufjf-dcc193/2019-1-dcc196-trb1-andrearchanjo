@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Trabalho 01</title>
+    <title>Relatório</title>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,26 +16,33 @@
 <body>
     <div class="ui container form">
     
-        <h1>Trabalho 01</h1>
+        <h1>Relatório</h1>
 
         <div class="form-row">
             <div class="form-group col-md-3">
-                    <a href="formnovasede.html">Nova Sede</a>    
-            </div>
-            <div class="form-group col-md-3">
-                <a href="relatorio.html">Relatório</a>    
-        </div>        
+                    <a href="index.html">Voltar</a>    
+            </div>   
         </div>
     
         <div class="form-group"> 
 
-        <h2>Lista de Sedes: </h2>
+        <h2>Lista de Sedes e Suas Horas: </h2>
+        <div class="form-row">
+            <div class="form-group col-md-6">
             <ul style="list-style: none;" class="form-control" id="sede" name="sede">      
                 <c:forEach var="sede" items="${sedes}">         
-                    <li value="${sede.id}">  <a href="deletasede.html?id=${sede.id}"> X 
-                    </a> <a href="visualizasede.html?id=${sede.id}"> ${sede.nome} </a>    
-                </c:forEach>   
-            </ul>      
+                    <li value="${sede.id}"> ${sede.nome}     
+                </c:forEach>
+            </ul>
+            </div>
+            <div class="form-group col-md-6">
+            <ul style="list-style: none;" class="form-control" id="duracao" name="duracao">      
+                <c:forEach var="duracao" items="${duracoes}">         
+                    <li value="${duracao}"> ${duracao}     
+                </c:forEach>
+            </ul>
+            </div>      
+        </div>
         </div>
 
     
